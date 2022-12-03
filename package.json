@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/padi-dev-linhnd/CRUD/issues"
   },
-  "homepage": "https://github.com/padi-dev-linhnd/CRUD#readme"
+  "homepage": "https://github.com/padi-dev-linhnd/CRUD#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
