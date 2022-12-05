@@ -18,6 +18,20 @@ var crateUsers = async (data) => {
   });
 };
 
+var getAllUsers = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      var user = await db.User.findAll({
+        raw: true,
+      });
+      resolve(user);
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
 module.exports = {
   crateUsers,
+  getAllUsers,
 };
