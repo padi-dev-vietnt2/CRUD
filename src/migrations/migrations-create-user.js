@@ -8,14 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      email: {
+        type: Sequelize.STRING,
+      },
       firstName: {
         type: Sequelize.STRING,
       },
       lastName: {
         type: Sequelize.STRING,
       },
-      email: {
+      address: {
         type: Sequelize.STRING,
+      },
+      phonenumber: {
+        type: Sequelize.STRING,
+      },
+      sex: {
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
