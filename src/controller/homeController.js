@@ -13,11 +13,29 @@ var postCRUD = async (req, res) => {
 
 var getCRUD = async (req, res) => {
   var data = await CRUDservices.getAllUsers();
-  res.render("getCRUD.ejs", { data: data });
+  return res.render("getCRUD.ejs", { data: data });
+};
+
+var getEditCRUD = async (req, res) => {
+  var userId = req.query.id;
+  if (userId) {
+    var userData = await CRUDservices.getUserInfoById(userId);
+    console.log(userData);
+    return res.render("editCRUD.ejs", { userData: userData });
+  } else {
+    return res.send("k co id nao o day ca");
+  }
+};
+var putEditCRUD = async (req, res) => {
+  var data = req.body;
+  var allUser = await CRUDservices.updateDataCRUD(data);
+  return res.render("getCRUD.ejs", { data: allUser });
 };
 
 module.exports = {
   getCRUD,
   postCRUD,
   createUser,
+  getEditCRUD,
+  putEditCRUD,
 };
