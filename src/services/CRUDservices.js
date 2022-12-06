@@ -69,9 +69,27 @@ var updateDataCRUD = (data) => {
   });
 };
 
+var deleteCRUDById = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      var user = await db.User.findOne({
+        where: { id: id },
+      });
+      if (user) {
+        await user.destroy();
+      }
+      var allUser = await db.User.findAll();
+      resolve(allUser);
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
 module.exports = {
   crateUsers,
   getAllUsers,
   getUserInfoById,
   updateDataCRUD,
+  deleteCRUDById,
 };

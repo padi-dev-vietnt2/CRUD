@@ -32,10 +32,19 @@ var putEditCRUD = async (req, res) => {
   return res.render("getCRUD.ejs", { data: allUser });
 };
 
+var deleteCRUD = async (req, res) => {
+  var id = req.query.id;
+  if (id) {
+    var allUser = await CRUDservices.deleteCRUDById(id);
+    return res.render("getCRUD.ejs", { data: allUser });
+  }
+};
+
 module.exports = {
   getCRUD,
   postCRUD,
   createUser,
   getEditCRUD,
   putEditCRUD,
+  deleteCRUD,
 };
